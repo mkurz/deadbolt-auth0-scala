@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>Deadbolt and Auth0</title>
+</head>
+<body>
+<div>
+    <h2>Deadbolt and Auth0</h2>
+
+    <p>
+        This starter application demonstrates how to use <a href="https://github.com/schaloner/deadbolt-2">Deadbolt</a> to provide authorization and drive
+        authentication triggers. The identity management platform <a href="https://auth0.com">Auth0</a> is used to provide authentication support.
+    </p>
+
+    <p>
+        This example was written as part of the <a href="https://leanpub.com/deadbolt-2">Deadbolt user guide</a>.
+    </p>
+
+</div>
+<div>
+    <h2>AuthSupport</h2>
+
+    <p>The bulk of the security mechanism can be found in AuthSupport. This manages the retrieval of the subject from the request, the cache or Auth0 in that
+        order, as well as various other functionality. This class can essentially remain unchanged in most applications, unless some form of local user storage
+        such as a database is also used.</p>
+</div>
+<div>
+    <h2>AuthController</h2>
+
+    <p>The entrypoint for a callback from Auth0. Once a user has authenticated on the identity management platform, the application is notified and provided
+        with an authentication code for further interactions.</p>
+</div>
+<div>
+    <h2>MyDeadboltHandler</h2>
+
+    <p>This drives the authentication behaviour based on the requirements of the application's authorizations. If (for example) a subject is not required to
+        access a resource and no subject is present, access will be granted; if (also for example) a subject is required to access a resource but is not
+        present, an unauthorised response (with the login page as content) will be sent back. In cases where a subject must hold certain roles or permissions to
+        access a resource and they do not meet the requirements, the client will receive a forbidden response.</p>
+</div>
+<div>
+    <h2>login.scala.html</h2>
+
+    <p>A very simply page containing the script provided by Auth0 to generate a log-in dialog.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+@(clientId: String, domain: String, redirectUri: String)
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Log in</title>
+    </head>
+
+    <body>
+        <div id="root">
+            Log-in area
+        </div>
+        <script src="https://cdn.auth0.com/js/lock-7.12.min.js"></script>
+        <script>
+                var lock = new Auth0Lock('@clientId', '@domain');
+                lock.show({
+                    container: 'root',
+                    callbackURL: '@redirectUri',
+                    responseType: 'code',
+                    authParams: { scope: 'openid profile' }
+                });
+        </script>
+    </body>
+
+</html>

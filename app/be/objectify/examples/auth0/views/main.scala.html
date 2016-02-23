@@ -1,0 +1,13 @@
+@import be.objectify.examples.auth0.models.User
+@(title: String, maybeUser: Option[User])(content: Html)
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>@title</title>
+    </head>
+    <body>
+    @content
+    </body>
+</html>
