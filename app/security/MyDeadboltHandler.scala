@@ -1,13 +1,12 @@
-package be.objectify.examples.auth0.security
+package security
 
 import javax.inject.{Inject, Singleton}
 
 import be.objectify.deadbolt.core.models.Subject
 import be.objectify.deadbolt.scala.{AuthenticatedRequest, DynamicResourceHandler, DeadboltHandler}
-import be.objectify.examples.auth0.models.User
-import be.objectify.examples.auth0.views.html.security.{login, denied}
+import models.User
+import views.html.security.{login, denied}
 import play.api.Configuration
-import play.api.cache.CacheApi
 import play.api.mvc.{Results, Result, Request}
 import play.twirl.api.HtmlFormat
 import scala.concurrent.ExecutionContext.Implicits.global

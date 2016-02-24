@@ -1,7 +1,7 @@
-@import be.objectify.examples.auth0.models.User
+@import models.User
 @(maybeUser: Option[User])
 
-@be.objectify.examples.auth0.views.html.main(title = "Access Denied", maybeUser = maybeUser) {
+@views.html.main(title = "Access Denied", maybeUser = maybeUser) {
     <div class="row mt">
         <div class="col-lg-12">
             <p>Access Denied</p>

@@ -1,4 +1,4 @@
-package be.objectify.examples.auth0.models
+package models
 
 import java.util
 import java.util.Collections

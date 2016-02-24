@@ -1,8 +1,8 @@
-package be.objectify.examples.auth0
+package modules
 
 import be.objectify.deadbolt.scala.DeadboltHandler
 import be.objectify.deadbolt.scala.cache.HandlerCache
-import be.objectify.examples.auth0.security.{AuthSupport, MyDeadboltHandler, MyHandlerCache}
+import security.{AuthSupport, MyDeadboltHandler, MyHandlerCache}
 import play.api.inject.{Binding, Module}
 import play.api.{Configuration, Environment}
 

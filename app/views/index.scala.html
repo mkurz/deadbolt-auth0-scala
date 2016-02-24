@@ -1,4 +1,4 @@
-@import be.objectify.examples.auth0.models.User
+@import models.User
 @(title: String, maybeUser: Option[User])
 
 @main(title, maybeUser) {
@@ -10,5 +10,5 @@
     }
 
     <p>This content is only visible to authenticated users.</p>
-    <p><a href="@be.objectify.examples.auth0.controllers.routes.AuthController.logOut()">Log out</a></p>
+    <p><a href="@controllers.routes.AuthController.logOut()">Log out</a></p>
 }

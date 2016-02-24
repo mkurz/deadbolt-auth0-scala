@@ -1,9 +1,9 @@
-package be.objectify.examples.auth0.controllers
+package controllers
 
 import javax.inject.Inject
 
-import be.objectify.examples.auth0.models.User
-import be.objectify.examples.auth0.security.{AuthSupport, Auth0ConfigKeys}
+import models.User
+import security.{AuthSupport, Auth0ConfigKeys}
 import play.api.{Configuration, Play}
 import play.api.cache.CacheApi
 import play.api.http.{HeaderNames, MimeTypes}
@@ -46,17 +46,17 @@ class AuthController @Inject()(cache: CacheApi,
 
   def logIn = Action.async {
     Future {
-      Ok(be.objectify.examples.auth0.views.html.security.login(clientId,
-                                                                domain,
-                                                                redirectUri))
-    }
+             Ok(views.html.security.login(clientId,
+                                          domain,
+                                          redirectUri))
+           }
   }
 
   def logOut = Action.async { request =>
     Future {
-      Ok(be.objectify.examples.auth0.views.html.security.login(clientId,
-                                                                domain,
-                                                                redirectUri))
+             Ok(views.html.security.login(clientId,
+                                          domain,
+                                          redirectUri))
       .withSession(authSupport.cleanUp(request.session))
     }
   }

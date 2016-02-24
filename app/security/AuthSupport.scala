@@ -1,9 +1,9 @@
-package be.objectify.examples.auth0.security
+package security
 
 import javax.inject.{Inject, Singleton}
 
 import be.objectify.deadbolt.scala.AuthenticatedRequest
-import be.objectify.examples.auth0.models.User
+import models.User
 import play.api.http.{MimeTypes, HeaderNames}
 import play.api.mvc.Session
 import play.api.{Configuration, Play}

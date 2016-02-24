@@ -1,4 +1,4 @@
-package be.objectify.examples.auth0.security
+package security
 
 /**
   * @author Steve Chaloner (steve@objectify.be)

@@ -1,9 +1,9 @@
 # Home page
-GET     /                   be.objectify.examples.auth0.controllers.Application.index
+GET     /                   controllers.Application.index
 
-GET     /logIn              be.objectify.examples.auth0.controllers.AuthController.logIn()
-GET     /callback           be.objectify.examples.auth0.controllers.AuthController.callback(code: Option[String])
-GET     /logOut             be.objectify.examples.auth0.controllers.AuthController.logOut()
+GET     /logIn              controllers.AuthController.logIn()
+GET     /callback           controllers.AuthController.callback(code: Option[String])
+GET     /logOut             controllers.AuthController.logOut()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file       controllers.Assets.versioned(path="/public", file: Asset)
