@@ -1,4 +1,4 @@
-name := """auth0-integration-2.4.4"""
+name := """deadbolt-auth0-scala"""
 
 version := "1.0-SNAPSHOT"
 
