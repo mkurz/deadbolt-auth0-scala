@@ -2,16 +2,12 @@ package controllers
 
 import javax.inject.Inject
 
-import models.User
-import security.{AuthSupport, Auth0ConfigKeys}
-import play.api.{Configuration, Play}
+import play.api.Configuration
 import play.api.cache.CacheApi
-import play.api.http.{HeaderNames, MimeTypes}
-import play.api.libs.json.{JsValue, Json}
-import play.api.libs.ws.WS
-import play.api.mvc.{Session, Action, Controller}
-import scala.concurrent.ExecutionContext.Implicits.global
+import play.api.mvc.{Action, Controller}
+import security.{Auth0ConfigKeys, AuthSupport}
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 /**

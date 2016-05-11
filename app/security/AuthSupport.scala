@@ -4,14 +4,14 @@ import javax.inject.{Inject, Singleton}
 
 import be.objectify.deadbolt.scala.AuthenticatedRequest
 import models.User
-import play.api.http.{MimeTypes, HeaderNames}
+import play.api.http.{HeaderNames, MimeTypes}
 import play.api.mvc.Session
-import play.api.{Configuration, Play}
+import play.api.{Configuration}
 import play.api.cache.CacheApi
-import play.api.libs.json.{Json, JsValue}
-import play.api.libs.ws.WS
-import scala.concurrent.ExecutionContext.Implicits.global
+import play.api.libs.json.{JsValue, Json}
+import play.api.libs.ws.WSClient
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 /**
@@ -21,7 +21,8 @@ import scala.concurrent.Future
   */
 @Singleton
 class AuthSupport @Inject()(cache: CacheApi,
-                            config: Configuration) {
+                            config: Configuration,
+                            ws: WSClient) {
 
   private object SessionKeys {
     val IdToken: String = "idToken"
@@ -77,7 +78,7 @@ class AuthSupport @Inject()(cache: CacheApi,
     * @return a tuple containing the user token and JWT.
     */
   def getToken(code: String): Future[(String, String)] = {
-    val tokenResponse = WS.url(s"https://$domain/oauth/token")(Play.current)
+    val tokenResponse = ws.url(s"https://$domain/oauth/token")
                         .withHeaders(HeaderNames.ACCEPT -> MimeTypes.JSON)
                         .post(Json.obj("client_id" -> clientId,
                                        "client_secret" -> clientSecret,
@@ -102,7 +103,7 @@ class AuthSupport @Inject()(cache: CacheApi,
     * @return a future containing the user's attributes in JSON
     */
   def getUser(accessToken: String): Future[JsValue] = {
-    val userResponse = WS.url(s"https://$domain/userinfo")(Play.current)
+    val userResponse = ws.url(s"https://$domain/userinfo")
                        .withQueryString("access_token" -> accessToken)
                        .get()
 

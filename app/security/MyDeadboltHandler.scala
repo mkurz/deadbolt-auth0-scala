@@ -2,7 +2,7 @@ package security
 
 import javax.inject.{Inject, Singleton}
 
-import be.objectify.deadbolt.core.models.Subject
+import be.objectify.deadbolt.scala.models.Subject
 import be.objectify.deadbolt.scala.{AuthenticatedRequest, DynamicResourceHandler, DeadboltHandler}
 import models.User
 import views.html.security.{login, denied}
